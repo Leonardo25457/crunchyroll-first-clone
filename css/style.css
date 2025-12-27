@@ -912,6 +912,118 @@ video {
   color: #f47521;
 }
 
+
+/* ======================
+   HEADER RESPONSIVE
+====================== */
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex: 1;
+}
+
+.header-icons {
+  display: none;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 85%;
+  max-width: 340px;
+  height: calc(100vh - 56px);
+
+  background: #141414;
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+
+  padding: 20px;
+  z-index: 1200;
+
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+
+.mobile-menu nav a,
+.mobile-menu summary {
+  display: block;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu details a {
+  padding-left: 14px;
+  opacity: 0.85;
+}
+
+/* =========================
+   MOBILE GENRES
+========================= */
+
+.mobile-genres summary {
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobile-genres summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-genres summary::after {
+  content: "▾";
+  float: right;
+  opacity: 0.7;
+}
+
+.mobile-genres[open] summary::after {
+  content: "▴";
+}
+
+.mobile-genres-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.mobile-genres-list a {
+  padding: 8px 0;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+
+.mobile-genres-list a:hover {
+  color: #ff8c00;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 980px){
   .cr-footer__top{
     grid-template-columns: 1fr 1fr;
@@ -963,6 +1075,24 @@ video {
 
   .cr-desc {
     display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .header-icons {
+    display: block;
+    font-size: 20px;
+  }
+
+  .main-header {
+    justify-content: flex-start;
+    gap: 14px;
   }
 }
 

@@ -11,53 +11,38 @@
   </head>
   <body>
     <header class="main-header">
-      <a class="cr-header__logo" href="#" aria-label="Crunchyroll">
+      <!-- LEFT: HAMBURGER (solo mobile) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+      <!-- LOGO -->
+      <a class="cr-header__logo" href="index.html" aria-label="Crunchyroll">
         <img
           class="cr-header__logo-img"
           src="assets/CRUNCHYROLL-COLOR.png"
           alt="Crunchyroll"
         />
       </a>
-      <nav>
+
+      <!-- DESKTOP NAV -->
+      <nav class="nav-desktop">
         <a href="#">Novedades</a>
         <a href="news.html">Noticias</a>
         <a href="#">Popular</a>
 
-        <div class="nav-dropdown" id="categoriesDropdown">
-          <button class="nav-link" id="categoriesBtn">
-            Categorías
-            <span class="arrow">▾</span>
-          </button>
-
+        <div class="nav-dropdown">
+          <button class="nav-link" id="categoriesBtn">Categorías ▾</button>
           <div class="dropdown-menu" id="categoriesMenu">
-            <!-- LEFT COLUMN -->
             <div class="dropdown-left">
               <a href="#">Ver Todo (A-Z)</a>
-              <a href="#">Calendario de lanzamientos</a>
-              <a href="#">Videos musicales y conciertos</a>
+              <a href="#">Calendario</a>
             </div>
-
-            <!-- RIGHT COLUMNS -->
             <div class="dropdown-right">
               <strong>GÉNEROS</strong>
-
               <div class="genres-grid">
-                <a href="genre.html?id=1">Acción</a>
-                <a href="genre.html?id=2">Aventura</a>
-                <a href="genre.html?id=4">Comedia</a>
-                <a href="genre.html?id=8">Drama</a>
-                <a href="genre.html?id=10">Fantasía</a>
-
-                <a href="genre.html?id=19">Musical</a>
-                <a href="genre.html?id=22">Romance</a>
-                <a href="genre.html?id=24">Ciencia Ficción</a>
-                <a href="genre.html?id=27">Shounen</a>
-                <a href="genre.html?id=42">Seinen</a>
-
-                <a href="genre.html?id=36">Deportes</a>
-                <a href="genre.html?id=37">Sobrenatural</a>
-                <a href="genre.html?id=41">Thriller</a>
-                <a href="genre.html?id=9">Recuentos de la Vida</a>
+                <a href="#">Acción</a>
+                <a href="#">Aventura</a>
+                <a href="#">Drama</a>
+                <a href="#">Fantasía</a>
               </div>
             </div>
           </div>
@@ -85,7 +70,45 @@
           </svg>
         </a>
       </nav>
+
+      <!-- RIGHT ICONS -->
+      <!-- <div class="header-icons">🔍</div> -->
     </header>
+
+    <!-- MOBILE DRAWER -->
+    <aside class="mobile-menu" id="mobileMenu">
+      <nav>
+        <a href="#">Novedades</a>
+        <a href="#">Popular</a>
+        <a href="#">Calendario</a>
+
+        <details class="mobile-genres">
+          <summary>Categorías</summary>
+
+          <div class="mobile-genres-list">
+            <a href="genre.html?id=1">Acción</a>
+            <a href="genre.html?id=2">Aventura</a>
+            <a href="genre.html?id=4">Comedia</a>
+            <a href="genre.html?id=8">Drama</a>
+            <a href="genre.html?id=10">Fantasía</a>
+
+            <a href="genre.html?id=19">Musical</a>
+            <a href="genre.html?id=22">Romance</a>
+            <a href="genre.html?id=24">Ciencia Ficción</a>
+            <a href="genre.html?id=27">Shounen</a>
+            <a href="genre.html?id=42">Seinen</a>
+
+            <a href="genre.html?id=36">Deportes</a>
+            <a href="genre.html?id=37">Sobrenatural</a>
+            <a href="genre.html?id=41">Thriller</a>
+            <a href="genre.html?id=9">Recuentos de la Vida</a>
+          </div>
+        </details>
+
+        <a href="news.html">Noticias</a>
+        <a href="profile.html">Perfil</a>
+      </nav>
+    </aside>
 
     <section class="hero">
       <button class="hero-nav left" id="heroPrev">‹</button>
