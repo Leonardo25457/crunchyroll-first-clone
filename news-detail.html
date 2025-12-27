@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/Crunchyroll_Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noticia - Crunchyroll Clone</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/news.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <a class="cr-header__logo" href="index.html" aria-label="Crunchyroll">
+        <img
+          class="cr-header__logo-img"
+          src="assets/CRUNCHYROLL-COLOR.png"
+          alt="Crunchyroll"
+        />
+      </a>
+      <nav>
+        <a href="#">Novedades</a>
+        <a href="news.html">Noticias</a>
+        <a href="#">Popular</a>
+
+        <div class="nav-dropdown" id="categoriesDropdown">
+          <button class="nav-link" id="categoriesBtn">
+            Categorías
+            <span class="arrow">▾</span>
+          </button>
+
+          <div class="dropdown-menu" id="categoriesMenu">
+            <!-- LEFT COLUMN -->
+            <div class="dropdown-left">
+              <a href="#">Ver Todo (A-Z)</a>
+              <a href="#">Calendario de lanzamientos</a>
+              <a href="#">Videos musicales y conciertos</a>
+            </div>
+
+            <!-- RIGHT COLUMNS -->
+            <div class="dropdown-right">
+              <strong>GÉNEROS</strong>
+
+              <div class="genres-grid">
+                <a href="genre.html?id=1">Acción</a>
+                <a href="genre.html?id=2">Aventura</a>
+                <a href="genre.html?id=4">Comedia</a>
+                <a href="genre.html?id=8">Drama</a>
+                <a href="genre.html?id=10">Fantasía</a>
+
+                <a href="genre.html?id=19">Musical</a>
+                <a href="genre.html?id=22">Romance</a>
+                <a href="genre.html?id=24">Ciencia Ficción</a>
+                <a href="genre.html?id=27">Shounen</a>
+                <a href="genre.html?id=42">Seinen</a>
+
+                <a href="genre.html?id=36">Deportes</a>
+                <a href="genre.html?id=37">Sobrenatural</a>
+                <a href="genre.html?id=41">Thriller</a>
+                <a href="genre.html?id=9">Recuentos de la Vida</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="profile.html">Perfil</a>
+        <a href="search.html" class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <line
+              x1="16.5"
+              y1="16.5"
+              x2="22"
+              y2="22"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <section class="news-shell">
+      <div class="news-panel">
+        <div class="news-header">
+          <div class="news-title">
+            <span class="news-icon">🗞️</span>
+            <h2>Noticias</h2>
+          </div>
+
+          <a class="news-view-all" href="news.html"
+            >VOLVER <span class="chev">‹</span></a
+          >
+        </div>
+
+        <div class="news-detail" id="newsDetail"></div>
+      </div>
+    </section>
+
+    <footer class="cr-footer">
+      <div class="cr-footer__top">
+        <div class="cr-footer__col cr-footer__brand">
+          <a class="cr-footer__logo" href="#" aria-label="Crunchyroll">
+            <img
+              class="cr-footer__logo-img"
+              src="assets/CRUNCHYROLL-COLOR.png"
+              alt="Crunchyroll"
+            />
+          </a>
+
+          <div class="cr-footer__legal">
+            <div class="cr-footer__muted">
+              SONY PICTURES | © Crunchyroll, LLC
+            </div>
+            <p class="cr-footer__desc">
+              Te damos la bienvenida a Crunchyroll, tu destino número uno para
+              ver el mejor anime.
+            </p>
+          </div>
+
+          <div class="cr-footer__social">
+            <a class="cr-footer__icon" href="#" aria-label="YouTube">
+              <img
+                class="cr-footer__icon-img"
+                src="assets/icons-youtube.png"
+                alt=""
+              />
+            </a>
+
+            <a class="cr-footer__icon" href="#" aria-label="Facebook">
+              <img
+                class="cr-footer__icon-img"
+                src="assets/icons-facebook.png"
+                alt=""
+              />
+            </a>
+
+            <a class="cr-footer__icon" href="#" aria-label="Instagram">
+              <img
+                class="cr-footer__icon-img"
+                src="assets/icons-instagram.png"
+                alt=""
+              />
+            </a>
+
+            <a class="cr-footer__icon" href="#" aria-label="X">
+              <img
+                class="cr-footer__icon-img"
+                src="assets/icons-x.png"
+                alt=""
+              />
+            </a>
+
+            <a class="cr-footer__icon" href="#" aria-label="TikTok">
+              <img
+                class="cr-footer__icon-img"
+                src="assets/icons-tiktok.png"
+                alt=""
+              />
+            </a>
+          </div>
+
+          <button class="cr-footer__lang" type="button">
+            <span class="cr-footer__globe">🌐</span>
+            Español
+            <span class="cr-footer__caret">▾</span>
+          </button>
+        </div>
+
+        <nav class="cr-footer__col">
+          <h4 class="cr-footer__title">Explorar</h4>
+          <a class="cr-footer__link" href="#">Explorar lo más popular</a>
+          <a class="cr-footer__link" href="#">Explorar los Simulcasts</a>
+          <a class="cr-footer__link" href="#">Calendario de lanzamientos</a>
+          <a class="cr-footer__link" href="#">Noticias</a>
+          <a class="cr-footer__link" href="#">Juegos</a>
+        </nav>
+
+        <nav class="cr-footer__col">
+          <h4 class="cr-footer__title">Recursos</h4>
+          <a class="cr-footer__link" href="#">Acerca</a>
+          <a class="cr-footer__link" href="#"
+            >Hazte con nuestras aplicaciones</a
+          >
+          <a class="cr-footer__link" href="#">Empleo</a>
+          <a class="cr-footer__link" href="#">Centro de ayuda</a>
+          <a class="cr-footer__link" href="#">Consultas Publicitarias</a>
+          <a class="cr-footer__link" href="#">Contacto de prensa</a>
+        </nav>
+
+        <nav class="cr-footer__col">
+          <h4 class="cr-footer__title">Cuenta</h4>
+          <a class="cr-footer__link cr-footer__link--accent" href="#"
+            >Comienza tu Prueba Gratuita</a
+          >
+          <a class="cr-footer__link" href="#">Cambiar perfil</a>
+          <a class="cr-footer__link" href="#">Favoritos</a>
+          <a class="cr-footer__link" href="#">Crunchylistas</a>
+          <a class="cr-footer__link" href="#">Historial</a>
+          <a class="cr-footer__link" href="#">Mi Cuenta</a>
+          <a class="cr-footer__link" href="#">Canjear Tarjeta Regalo</a>
+          <a class="cr-footer__link" href="#">Desconectar</a>
+        </nav>
+      </div>
+
+      <div class="cr-footer__bottom">
+        <div class="cr-footer__bottom-inner">
+          <a href="#" class="cr-footer__bottom-link">Términos de Uso</a>
+          <a href="#" class="cr-footer__bottom-link">Política de Privacidad</a>
+          <a href="#" class="cr-footer__bottom-link"
+            >Herramienta de aceptación de cookies</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/header.js"></script>
+    <script type="module" src="js/newsDetail.js"></script>
+  </body>
+</html>

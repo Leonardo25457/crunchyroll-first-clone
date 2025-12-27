@@ -1,0 +1,135 @@
+.search-hero {
+  margin-top: 56px;
+  height: 180px;
+  background: linear-gradient(180deg, #111, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.search-header input {
+  width: min(900px, 92vw);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #f47521;
+
+  color: #fff;
+  font-size: 34px;
+  font-weight: 500;
+
+  padding: 14px 48px 14px 0;
+  outline: none;
+}
+
+.search-hero input::placeholder {
+  color: rgba(255,255,255,.45);
+}
+
+#clearBtn {
+  position: absolute;
+  right: calc(50% - 450px);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.85);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* RESULTS */
+.search-results {
+  padding: 30px 40px 80px;
+}
+
+#resultsTitle {
+  font-size: 18px;
+  margin-bottom: 16px;
+  opacity: .85;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.search-grid .rail-item {
+  width: 100%;
+}
+
+.search-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 26px 0 14px;
+  opacity: .9;
+}
+
+/* ===== TOP RESULTS ===== */
+.search-top-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.search-top-card {
+  cursor: pointer;
+}
+
+.search-top-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #111;
+}
+
+.search-top-title {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.search-top-sub {
+  font-size: 13px;
+  opacity: .65;
+}
+
+/* ===== SERIES GRID ===== */
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+
+.search-header {
+  position: sticky;
+  top: 56px; /* justo debajo del header */
+  z-index: 300;
+
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.96),
+    rgba(0,0,0,0.85)
+  );
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  opacity: .85;
+}
+
+.search-icon:hover {
+  color: #f47521;
+  opacity: 1;
+}

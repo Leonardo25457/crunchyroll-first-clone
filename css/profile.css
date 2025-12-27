@@ -1,0 +1,133 @@
+.profile-page {
+  width: min(1100px, 92vw);
+  margin: 32px auto 60px;
+  color: #fff;
+}
+
+.profile-card {
+  background: #0b0b0b;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.profile-banner {
+  height: 160px;
+  background: linear-gradient(135deg, #2b0000, #8b0000, #ff4500);
+}
+
+.profile-info {
+  position: relative;
+  padding: 60px 24px 24px;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0b0b0b;
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.profile-sub {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.profile-section {
+  margin-top: 36px;
+}
+
+.profile-section h2 {
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.profile-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.profile-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 117, 33, 0.6);
+}
+
+.profile-item strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.profile-item span {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.profile-empty {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+
+.profile-card-item {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.profile-card-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244,117,33,.6);
+}
+
+.profile-card-item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.profile-card-title {
+  padding: 10px;
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .profile-banner {
+    height: 120px;
+  }
+
+  .profile-avatar {
+    width: 90px;
+    height: 90px;
+    top: -45px;
+  }
+}
