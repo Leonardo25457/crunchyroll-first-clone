@@ -11,10 +11,8 @@
   </head>
   <body>
     <header class="main-header">
-      <!-- LEFT: HAMBURGER (solo mobile) -->
       <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
 
-      <!-- LOGO -->
       <a class="cr-header__logo" href="index.html" aria-label="Crunchyroll">
         <img
           class="cr-header__logo-img"
@@ -23,60 +21,92 @@
         />
       </a>
 
-      <!-- DESKTOP NAV -->
+      
+
       <nav class="nav-desktop">
         <a href="#">Novedades</a>
         <a href="news.html">Noticias</a>
         <a href="#">Popular</a>
 
-        <div class="nav-dropdown">
-          <button class="nav-link" id="categoriesBtn">Categorías ▾</button>
+        <div class="nav-dropdown" id="categoriesDropdown">
+          <button class="nav-link" id="categoriesBtn">
+            Categorías
+            <span class="arrow">▾</span>
+          </button>
+
           <div class="dropdown-menu" id="categoriesMenu">
+            <!-- LEFT COLUMN -->
             <div class="dropdown-left">
               <a href="#">Ver Todo (A-Z)</a>
-              <a href="#">Calendario</a>
+              <a href="#">Calendario de lanzamientos</a>
+              <a href="#">Videos musicales y conciertos</a>
             </div>
+
+            <!-- RIGHT COLUMNS -->
             <div class="dropdown-right">
               <strong>GÉNEROS</strong>
+
               <div class="genres-grid">
-                <a href="#">Acción</a>
-                <a href="#">Aventura</a>
-                <a href="#">Drama</a>
-                <a href="#">Fantasía</a>
+                <a href="genre.html?id=1">Acción</a>
+                <a href="genre.html?id=2">Aventura</a>
+                <a href="genre.html?id=4">Comedia</a>
+                <a href="genre.html?id=8">Drama</a>
+                <a href="genre.html?id=10">Fantasía</a>
+
+                <a href="genre.html?id=19">Musical</a>
+                <a href="genre.html?id=22">Romance</a>
+                <a href="genre.html?id=24">Ciencia Ficción</a>
+                <a href="genre.html?id=27">Shounen</a>
+                <a href="genre.html?id=42">Seinen</a>
+
+                <a href="genre.html?id=36">Deportes</a>
+                <a href="genre.html?id=37">Sobrenatural</a>
+                <a href="genre.html?id=41">Thriller</a>
+                <a href="genre.html?id=9">Recuentos de la Vida</a>
               </div>
             </div>
           </div>
         </div>
 
         <a href="profile.html">Perfil</a>
-        <a href="search.html" class="search-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24">
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-            />
-            <line
-              x1="16.5"
-              y1="16.5"
-              x2="22"
-              y2="22"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-          </svg>
-        </a>
       </nav>
 
-      <!-- RIGHT ICONS -->
-      <!-- <div class="header-icons">🔍</div> -->
+      <a
+        href="search.html"
+        class="search-icon"
+        aria-label="Buscar"
+        title="Buscar"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          />
+          <line
+            x1="16.5"
+            y1="16.5"
+            x2="22"
+            y2="22"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+        </svg>
+      </a>
     </header>
 
     <!-- MOBILE DRAWER -->
     <aside class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span>Menú</span>
+        <button class="menu-close" id="menuClose" aria-label="Cerrar menú">
+          ✕
+        </button>
+      </div>
+
       <nav>
         <a href="#">Novedades</a>
         <a href="#">Popular</a>
@@ -84,20 +114,17 @@
 
         <details class="mobile-genres">
           <summary>Categorías</summary>
-
           <div class="mobile-genres-list">
             <a href="genre.html?id=1">Acción</a>
             <a href="genre.html?id=2">Aventura</a>
             <a href="genre.html?id=4">Comedia</a>
             <a href="genre.html?id=8">Drama</a>
             <a href="genre.html?id=10">Fantasía</a>
-
             <a href="genre.html?id=19">Musical</a>
             <a href="genre.html?id=22">Romance</a>
             <a href="genre.html?id=24">Ciencia Ficción</a>
             <a href="genre.html?id=27">Shounen</a>
             <a href="genre.html?id=42">Seinen</a>
-
             <a href="genre.html?id=36">Deportes</a>
             <a href="genre.html?id=37">Sobrenatural</a>
             <a href="genre.html?id=41">Thriller</a>

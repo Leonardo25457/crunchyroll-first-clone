@@ -1,4 +1,4 @@
-/* ===== DESKTOP: Categorías dropdown ===== */
+// ===== DESKTOP: Categorías =====
 const categoriesBtn = document.getElementById("categoriesBtn");
 const categoriesMenu = document.getElementById("categoriesMenu");
 
@@ -17,34 +17,39 @@ if (categoriesBtn && categoriesMenu) {
   });
 }
 
-/* ===== MOBILE: Hamburger menu ===== */
+// ===== MOBILE MENU =====
 const menuBtn = document.getElementById("menuBtn");
+const menuClose = document.getElementById("menuClose");
 const mobileMenu = document.getElementById("mobileMenu");
 
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    mobileMenu.classList.toggle("active");
-    document.body.classList.toggle(
-      "no-scroll",
-      mobileMenu.classList.contains("active")
-    );
-  });
+const openMenu = () => {
+  mobileMenu.classList.add("active");
+  document.body.classList.add("no-scroll");
+};
 
-  document.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  });
+const closeMenu = () => {
+  mobileMenu.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+};
 
-  mobileMenu.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-}
+menuBtn?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  openMenu();
+});
 
-/* ===== UX EXTRA: cerrar menú al volver a desktop ===== */
+menuClose?.addEventListener("click", closeMenu);
+
+document.addEventListener("click", () => {
+  closeMenu();
+});
+
+mobileMenu?.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+// ===== RESET AL RESIZE =====
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 768 && mobileMenu) {
-    mobileMenu.classList.remove("active");
-    document.body.classList.remove("no-scroll");
+  if (window.innerWidth > 768) {
+    closeMenu();
   }
 });
