@@ -4,54 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="assets/Crunchyroll_Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reproduciendo - Crunchyroll Clone</title>
+    <title>Novedades</title>
+
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      body {
-        background: #0b0b0b;
-        color: #fff;
-      }
-      .player-wrap {
-        width: min(1320px, 92vw);
-        margin: 18px auto 50px;
-        padding-top: 56px;
-      }
-      .back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin: 14px 0;
-        color: #f47521;
-        font-weight: 800;
-        text-decoration: none;
-        font-size: 14px;
-      }
-
-      .back:hover {
-        text-decoration: underline;
-      }
-      .frame {
-        position: relative;
-        aspect-ratio: 16/9;
-        background: #000;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.55);
-      }
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-      }
-      .ep-title {
-        margin: 14px 0 0;
-        opacity: 0.92;
-      }
-    </style>
+    <link rel="stylesheet" href="css/Latest.css" />
   </head>
-
   <body>
     <header class="main-header">
       <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
@@ -64,44 +21,36 @@
         />
       </a>
 
-      
-
       <nav class="nav-desktop">
-        <a href="#">Novedades</a>
+        <!-- <a href="#" aria-current="page">Novedades</a> -->
         <a href="news.html">Noticias</a>
         <a href="#">Popular</a>
 
         <div class="nav-dropdown" id="categoriesDropdown">
           <button class="nav-link" id="categoriesBtn">
-            Categorías
-            <span class="arrow">▾</span>
+            Categorías <span class="arrow">▾</span>
           </button>
 
           <div class="dropdown-menu" id="categoriesMenu">
-            <!-- LEFT COLUMN -->
             <div class="dropdown-left">
               <a href="#">Ver Todo (A-Z)</a>
               <a href="#">Calendario de lanzamientos</a>
               <a href="#">Videos musicales y conciertos</a>
             </div>
 
-            <!-- RIGHT COLUMNS -->
             <div class="dropdown-right">
               <strong>GÉNEROS</strong>
-
               <div class="genres-grid">
                 <a href="genre.html?id=1">Acción</a>
                 <a href="genre.html?id=2">Aventura</a>
                 <a href="genre.html?id=4">Comedia</a>
                 <a href="genre.html?id=8">Drama</a>
                 <a href="genre.html?id=10">Fantasía</a>
-
                 <a href="genre.html?id=19">Musical</a>
                 <a href="genre.html?id=22">Romance</a>
                 <a href="genre.html?id=24">Ciencia Ficción</a>
                 <a href="genre.html?id=27">Shounen</a>
                 <a href="genre.html?id=42">Seinen</a>
-
                 <a href="genre.html?id=36">Deportes</a>
                 <a href="genre.html?id=37">Sobrenatural</a>
                 <a href="genre.html?id=41">Thriller</a>
@@ -114,29 +63,10 @@
         <a href="profile.html">Perfil</a>
       </nav>
 
-      <a
-        href="search.html"
-        class="search-icon"
-        aria-label="Buscar"
-        title="Buscar"
-      >
+      <a href="search.html" class="search-icon" aria-label="Buscar" title="Buscar">
         <svg width="20" height="20" viewBox="0 0 24 24">
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-            stroke="currentColor"
-            stroke-width="2"
-            fill="none"
-          />
-          <line
-            x1="16.5"
-            y1="16.5"
-            x2="22"
-            y2="22"
-            stroke="currentColor"
-            stroke-width="2"
-          />
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" />
         </svg>
       </a>
     </header>
@@ -151,7 +81,7 @@
       </div>
 
       <nav>
-        <a href="Latest.html">Novedades</a>
+        <!-- <a href="#">Novedades</a> -->
         <a href="#">Popular</a>
         <a href="#">Calendario</a>
 
@@ -180,37 +110,22 @@
       </nav>
     </aside>
 
-    <div class="player-wrap" id="player"></div>
+    <main class="page">
+      <section class="page-hero">
+        <h1>Novedades</h1>
+        <p>Lo más reciente del anime. Actualizado desde Jikan.</p>
+      </section>
 
-    <script type="module">
-      const qs = new URLSearchParams(location.search);
-      const yt = qs.get("yt");
-      const ep = qs.get("ep") || "1";
-      const title = qs.get("t") || "Serie";
+      <section class="nov-grid" id="novGrid"></section>
 
-      const el = document.getElementById("player");
+      <div class="nov-actions">
+        <button class="nov-btn" id="loadMoreBtn" type="button">
+          Cargar más
+        </button>
+      </div>
+    </main>
 
-      if (!yt) {
-        el.innerHTML =
-          '<p style="opacity:.8">No se encontró video (yt=...).</p>';
-      } else {
-        el.innerHTML = `
-          <a class="back" href="detail.html?id=${qs.get(
-            "id"
-          )}">← Volver a la serie</a>
-
-          <div class="frame">
-            <iframe
-              src="https://www.youtube.com/embed/${yt}?autoplay=1&mute=0"
-              title="YouTube video player"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <h3 class="ep-title">${title} — Episodio ${ep}</h3>
-        `;
-      }
-    </script>
     <script type="module" src="js/header.js"></script>
+    <script type="module" src="js/Latest.js"></script>
   </body>
 </html>

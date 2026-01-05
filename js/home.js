@@ -1,4 +1,4 @@
-import { getTrendingAnime,getRecommendedAnime,getAnimeByGenre } from "./api.js";
+import { getTrendingAnime, getAnimeByGenre, getNewOnHome } from "./api.js";
 import { news } from "./newsSeed.js";
 
 const viewport = document.getElementById("carousel");
@@ -162,11 +162,13 @@ function getPreferredGenre() {
   return history.at(-1)?.genreId || 1; // fallback Acción
 }
 
-
-
 const recommendedTrack = document.getElementById("recommended-track");
-const recPrev = document.querySelector('.carousel-btn.prev[data-target="recommended"]');
-const recNext = document.querySelector('.carousel-btn.next[data-target="recommended"]');
+const recPrev = document.querySelector(
+  '.carousel-btn.prev[data-target="recommended"]'
+);
+const recNext = document.querySelector(
+  '.carousel-btn.next[data-target="recommended"]'
+);
 
 async function renderRecommended() {
   if (!recommendedTrack) return;
@@ -176,7 +178,7 @@ async function renderRecommended() {
 
   recommendedTrack.innerHTML = "";
 
-  recommended.forEach(anime => {
+  recommended.forEach((anime) => {
     const card = document.createElement("div");
     card.className = "rail-item";
 
@@ -194,8 +196,7 @@ async function renderRecommended() {
       <div class="rail-sub">Recomendado</div>
     `;
 
-    card.onclick = () =>
-      location.href = `detail.html?id=${anime.mal_id}`;
+    card.onclick = () => (location.href = `detail.html?id=${anime.mal_id}`);
 
     recommendedTrack.appendChild(card);
   });
@@ -213,3 +214,80 @@ recPrev?.addEventListener("click", () => {
 recNext?.addEventListener("click", () => {
   recommendedTrack.scrollBy({ left: recScrollAmount(), behavior: "smooth" });
 });
+
+// =========================
+// NUEVO (HOME) -> #newRail
+// =========================
+const newRail = document.getElementById("newRail");
+const newPrev = document.getElementById("newPrev");
+const newNext = document.getElementById("newNext");
+
+async function renderNewHome() {
+  if (!newRail) return;
+
+  try {
+    const list = await getNewOnHome(20);
+
+    newRail.innerHTML = "";
+
+    list.forEach((anime) => {
+      const item = document.createElement("div");
+      item.className = "rail-item";
+
+      const poster = anime.images?.jpg?.image_url || "";
+      const title = anime.title || "Sin título";
+      const score = anime.score ? `⭐ ${anime.score}` : "";
+      const episodes = anime.episodes ?? "—";
+      const synopsis = clampText(anime.synopsis || "Sin descripción.", 220);
+
+      item.innerHTML = `
+        <div class="rail-poster">
+          <img src="${poster}" alt="${title}">
+          <div class="cr-overlay">
+            <div class="cr-overlay-content">
+              <h3 class="cr-title">${title}</h3>
+              <div class="cr-meta">
+                ${score ? `<span>${score}</span>` : ""}
+                <span>${episodes} eps</span>
+              </div>
+              <p class="cr-desc">${synopsis}</p>
+              <button class="cr-play">▶ Ver ahora</button>
+            </div>
+          </div>
+        </div>
+        <div class="rail-title">${title}</div>
+        <div class="rail-sub">Nuevo</div>
+      `;
+
+      item.addEventListener("click", () => {
+        location.href = `detail.html?id=${anime.mal_id}`;
+      });
+
+      item.querySelector(".cr-play")?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        location.href = `detail.html?id=${anime.mal_id}`;
+      });
+
+      newRail.appendChild(item);
+    });
+
+    const amount = () => Math.max(320, Math.floor(newRail.clientWidth * 0.85));
+
+    newPrev?.addEventListener("click", () => {
+      newRail.scrollBy({ left: -amount(), behavior: "smooth" });
+    });
+
+    newNext?.addEventListener("click", () => {
+      newRail.scrollBy({ left: amount(), behavior: "smooth" });
+    });
+  } catch (err) {
+    console.error("Nuevo(Home) falló:", err);
+    newRail.innerHTML = `
+      <div style="padding:12px; color: rgba(255,255,255,.75);">
+        No se pudo cargar “Nuevo” (límite de la API). Intenta recargar en unos segundos.
+      </div>
+    `;
+  }
+}
+
+renderNewHome();
